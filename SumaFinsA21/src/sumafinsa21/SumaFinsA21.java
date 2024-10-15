@@ -27,12 +27,16 @@ public class SumaFinsA21 {
             num = teclat.nextInt();
 
             // Sumar el número introduït (si no és 0)
-            if (num >= 21) {
+            if (num >= 1 && num <= 6) {
                 suma += num;
                 // Mostrar la suma fins al moment
-                System.out.println("La suma fins ara és: " + suma);
+                //System.out.println("La suma fins ara és: " + suma);
             }
         } while (num != 0); // Repetir mentre el número no sigui 0
+         System.out.println("La suma total dels números introduïts és: " + suma);
+         
+         
+         
     }
     
 }
