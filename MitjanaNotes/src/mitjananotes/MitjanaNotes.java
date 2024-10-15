@@ -18,7 +18,9 @@ public class MitjanaNotes {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner teclat = new Scanner(System.in);
+        int suma = 0;
         int alumnes;
+        
         System.out.println("Cuants alumnes hi ha al grup? ");
         alumnes = teclat.nextInt();
         
