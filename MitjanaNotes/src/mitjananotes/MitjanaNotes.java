@@ -20,11 +20,23 @@ public class MitjanaNotes {
         Scanner teclat = new Scanner(System.in);
         int suma = 0;
         int alumnes;
+        int nota;
         
+        //Introduir per teclat el número d'alumnes que hi ha al grup.
         System.out.println("Cuants alumnes hi ha al grup? ");
         alumnes = teclat.nextInt();
         
-        System.out.println("");
+        //Per a cada alumne demaneu la seva nota.
+        System.out.println("Introdueix la nota del alumne");
+        nota = teclat.nextInt();
+        
+        while (alumnes<0) {
+            suma+= nota/4;
+        }
+     
+        
+       System.out.println("La mitjana de les notes es" +suma);
+        
     }
     
 }
