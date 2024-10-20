@@ -33,7 +33,7 @@ public class EndevinaElNumero {
             numeroUsuari = teclat.nextInt();
 
             if (numeroUsuari == numeroGenerat) {
-                System.out.println("L?has encertat!!");
+                System.out.println("L'has encertat!!");
                 encertat = true; // Indicar que s'ha encertat
                 break; // Sortir del bucle quan s'ha encertat
             } else if (numeroUsuari < numeroGenerat) {

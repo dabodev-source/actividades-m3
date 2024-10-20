@@ -19,24 +19,27 @@ public class SumaFinsA21 {
         // TODO code application logic here
         Scanner teclat = new Scanner(System.in);
         int suma = 0;
-        int num;
         
-        do {
-            // Demana a l'usuari que introdueixi un número
-            System.out.print("Introdueix un número: ");
-            num = teclat.nextInt();
+        // Bucle fins que la suma passi de 21
+        while (suma <= 21) {
+            // Demanar a l'usuari un número
+            System.out.print("Entra número: ");
+            int numero = teclat.nextInt();
 
-            // Sumar el número introduït (si no és 0)
-            if (num >= 1 && num <= 6) {
-                suma += num;
-                // Mostrar la suma fins al moment
-                //System.out.println("La suma fins ara és: " + suma);
+            // Comprovar si el número està entre 1 i 5
+            if (numero >= 1 && numero <= 5) {
+                suma += numero;  // Sumar el número a la suma total
+            } else {
+                System.out.println("El número no és correcte!");  // Missatge d'error si el número no és vàlid
             }
-        } while (num != 0); // Repetir mentre el número no sigui 0
-         System.out.println("La suma total dels números introduïts és: " + suma);
+
+            // Si la suma passa de 21, mostrar el missatge final
+            if (suma > 21) {
+                System.out.println("Més de 21! La suma dels números entrats és " + suma);
+            }
+        }
          
-         
-         
+       
     }
     
 }
