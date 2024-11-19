@@ -13,41 +13,60 @@ import java.util.Scanner;
  */
 public class El7IMig {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
         Scanner teclat = new Scanner(System.in);
-        Random generador = new Random();
+        Random random = new Random();
         
-        int numeroGenerat =  generador.nextInt(1,10);
-        int numeroUsuari;
-        char continuar ='s';
+        // Aposta inicial
+        System.out.print("Introdueix la quantitat d'euros que vols apostar: ");
+        double aposta = teclat.nextDouble();
         
-        System.out.println("Fes una aposta");
-        numeroUsuari = teclat.nextInt();
-        
-        System.out.println(numeroGenerat);
-        
-        String carta;
-        switch (numeroGenerat) {
-            case 8:
-                carta = "Sota";
-                break;
-            case 9:
-                carta = "Cavall";
-                break;
-            case 10:
-                carta = "Rei";
-                break;
-            default:
-                carta = Integer.toString(numeroGenerat); // Si és entre 1 i 7, mostra el número
-                break;
+        double puntuacioJugador = 0;
+        boolean planta = false;
+        String resultat = null;
+
+        System.out.println("Comença el joc!");
+
+        // Bucle principal del joc
+        while (puntuacioJugador <= 7.5 && !planta) {
+            // Generar una carta de l'1 al 10
+            int carta = random.nextInt(10) + 1;
+
+            // Assignar el valor de la carta (de l'1 al 7 és el valor del número, sota, cavall i rei són 0.5)
+            double valorCarta = (carta <= 7) ? carta : 0.5;
+            puntuacioJugador += valorCarta;
+
+            // Mostrar la carta extreta
+            System.out.println("Has tret una carta amb valor de: " + valorCarta);
+            System.out.println("La teva puntuació actual és: " + puntuacioJugador);
+
+            // Comprovar si ha arribat a 7.5 exactament
+            if (puntuacioJugador == 7.5) {
+                resultat = "Has Guanyat " + (2 * aposta) + " euros!";
+                planta = true; // El jugador guanya i el joc s'acaba
+            } else if (puntuacioJugador > 7.5) {
+                resultat = "Has Perdut!!!!";
+                planta = true; // El jugador perd i el joc s'acaba
+            } else {
+                // Preguntar si el jugador vol una altra carta o es planta
+                System.out.print("Vols una altra carta? (s per sí, n per no): ");
+                String resposta = teclat.next();
+                
+                if (resposta.equalsIgnoreCase("n")) {
+                    planta = true;
+                    resultat = "El jugador es planta!!!";
+                } else {
+                    resultat = null;
+                }
+            }
         }
-        System.out.println("L'ordinador ha generat la carta: " + carta);
-        System.out.print("Vols continuar (s/n)?");
-        continuar=teclat.next().charAt(0);
+
+        // Mostrar el resultat final
+        if (resultat != null) {
+            System.out.println(resultat);
+        } else {
+            System.out.println("La partida ha finalitzat.");
+        }
     }
-    
 }
+

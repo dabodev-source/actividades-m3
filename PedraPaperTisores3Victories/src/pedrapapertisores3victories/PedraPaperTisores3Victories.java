@@ -20,7 +20,10 @@ public class PedraPaperTisores3Victories {
         // TODO code application logic here
         Scanner teclat = new Scanner(System.in);
         Random generador = new Random();
+        int intent = 1;
+        boolean victories = false;
         
+        while (intent <=3 && !victories) {
         // Generarmos un numero aleatoria por ordenador (0: pedra, 1: paper, 2:tisora)
         int ordinador = generador.nextInt(3);
         
@@ -32,6 +35,7 @@ public class PedraPaperTisores3Victories {
         
         String eleccioOrdinador = "";
         
+            
         switch(ordinador){
             case 0:
                eleccioOrdinador = "pedra";
@@ -77,6 +81,8 @@ public class PedraPaperTisores3Victories {
                 break;
             default:
                 System.out.println("Opcio no vàlida!!! Has d'introduir 'pedra', 'paper' o 'tisora'.");
+        }
+        intent++;
         }
         //System.out.println("Has ganado " + "ordinador" +ordinador);
     }

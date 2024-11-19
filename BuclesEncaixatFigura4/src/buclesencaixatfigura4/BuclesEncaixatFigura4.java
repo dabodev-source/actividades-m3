@@ -27,13 +27,14 @@ public class BuclesEncaixatFigura4 {
         //* * * * * * * * E
         
         for (int i = 1; i <= 9; i++) {
-           for (int j = 1 ; j <= 9; j++) {
-                System.out.print("*");
-                for (int a = 1; a <=1;a++) {
-                    System.out.print("E");
+            for (int j = 1 ; j <= 9; j++) {         
+                if (i == j) {
+                    System.out.print("E ");
+                } else {
+                    System.out.print("* ");
                 }
             }
-           System.out.println();
+            System.out.println();  
         }
     }
     

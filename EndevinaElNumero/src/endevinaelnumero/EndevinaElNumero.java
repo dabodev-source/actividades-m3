@@ -7,17 +7,9 @@ package endevinaelnumero;
 import java.util.Random;
 import java.util.Scanner;
 
-/**
- *
- * @author docto
- */
 public class EndevinaElNumero {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here      
         Random random = new Random();
         Scanner teclat = new Scanner(System.in);
         int numeroGenerat = random.nextInt(100) + 1;
@@ -27,15 +19,14 @@ public class EndevinaElNumero {
 
         System.out.println("Endevina un número que he generat comprès entre 1 i 100");
 
-        // Bucle fins a 10 intents
-        while (intent <= 10) {
+        // Bucle mentre que no s'ha encertat i queden intents
+        while (intent <= 10 && !encertat) {
             System.out.print("Entra un número (intent " + intent + "): ");
             numeroUsuari = teclat.nextInt();
 
             if (numeroUsuari == numeroGenerat) {
                 System.out.println("L'has encertat!!");
                 encertat = true; // Indicar que s'ha encertat
-                break; // Sortir del bucle quan s'ha encertat
             } else if (numeroUsuari < numeroGenerat) {
                 System.out.println("El número que he generat és més gran que el que has pensat");
             } else {
@@ -49,7 +40,6 @@ public class EndevinaElNumero {
             System.out.println("Ho sento, no has pogut endevinar el número. Era: " + numeroGenerat);
         }
     }
-    
 }
 
 //numero <= valorUsuari
