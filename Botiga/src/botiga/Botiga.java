@@ -4,6 +4,8 @@
  */
 package botiga;
 
+import java.util.Scanner;
+
 /**
  *
  * @author docto
@@ -15,53 +17,112 @@ public class Botiga {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Producte p = new Producte("Ordinador portatil" , 150 , 50 , "Electronica" , 20);
-        Producte p2 = new Producte("Sudadera" , 20 , 0 , "Roba" , 10);
+            
+        Categoria tecnologia = new Categoria("Tecnologia", "Productes i serveis relacionats amb tecnologia.");
+        Categoria esports = new Categoria("Esports", "Equipament i accessoris esportius.");
+        Categoria alimentacio = new Categoria("Alimentació", "Productes alimentaris i begudes.");
+        Categoria moda = new Categoria("Moda", "Roba i accessoris de moda.");
         
+        Producte p1 = new Producte("Portàtil", 1200.0, 10, tecnologia, 15.0);
+        Producte p2 = new Producte("Pilota de futbol", 30.0, 50, esports, 10.0);
+        Producte p3 = new Producte("Cafè premium", 15.5, 100, alimentacio, 5.0);
+        Producte p4 = new Producte("Jaqueta d'hivern", 80.0, 20, moda, 20.0);
+        
+        System.out.println(p1.getNom());
+        System.out.println(p1.getPreu());
+        System.out.println(p1);
+        System.out.println(p2.getNom());
+        System.out.println(p2.getPreu());
+        System.out.println(p2);
+        
+        Categoria[] categories = new Categoria[4];
+        categories[0] = new Categoria("Tecnologia", "Productes i serveis relacionats amb tecnologia.");
+        categories[1] = new Categoria("Esports", "Equipament i accessoris esportius.");
+        categories[2] = new Categoria("Alimentació", "Productes alimentaris i begudes.");
+        categories[3] = new Categoria("Moda", "Roba i accessoris de moda.");
+
+        // Mostrem la llista de categories
+        System.out.println("Llista de categories:");
+        for (Categoria categoria : categories) {
+            System.out.println(categoria);
+        }
        
-        System.out.println("Nombre del producte: " + p.mostrarNom());
-        // Mostramos el precio original antes de aplicar el descuento
-        System.out.println("Precio original: " + p.getPreu());
+    
+        Producte[] productes = new Producte[10];
+        productes[0] = new Producte("Portàtil", 1200.0, 10, categories[0], 15.0);
+        productes[1] = new Producte("Pilota de futbol", 30.0, 50, categories[1], 10.0);
+        productes[2] = new Producte("Cafè premium", 15.5, 100, categories[2], 5.0);
+        productes[3] = new Producte("Jaqueta d'hivern", 80.0, 20, categories[3], 20.0);
+        productes[4] = new Producte("Auriculars", 50.0, 25, categories[0], 10.0);
+        productes[5] = new Producte("Sabates esportives", 70.0, 30, categories[1], 20.0);
+        productes[6] = new Producte("Galetes artesanes", 5.0, 150, categories[2], 5.0);
+        productes[7] = new Producte("Camisa de seda", 45.0, 10, categories[3], 25.0);
+        productes[8] = new Producte("Tauleta tàctil", 300.0, 15, categories[0], 15.0);
+        productes[9] = new Producte("Raqueta de tennis", 100.0, 8, categories[1], 10.0);
+        
+        //Agregamos las subclases
+        productes[4] = new ProducteTecnologic("Windows 11", 512, "Portàtil Gaming", 1500.0, 5, tecnologia, 10.0);
+        productes[5] = new ProducteEsportiu(5, "Cuir", "Pilota de bàsquet", 50.0, 30, esports, 5.0);
+        productes[6] = new ProducteAlimentari(20250101, 200, "Suc de taronja", 3.5, 100, alimentacio, 2.0);
+        productes[7] = new ProducteDeModa("L", "Cotó", "Pantalons texans", 40.0, 25, moda, 15.0);
+        
+        for (Producte producte : productes) {
+            if (producte != null) {
+                System.out.println(producte.getDescripcio());
+            }
+        }
+/*
+        // Mostrem la llista de productes amb la seva categoria
+        System.out.println("\nLlista de productes:");
+        for (Producte producte : productes) {
+            System.out.println(producte.getDescripcio());
+        }
 
-        // Aplicamos el descuento
-        p.aplicaDescompte();
-        
-        // Mostramos el precio después de aplicar el descuento
-        System.out.println("Precio después del descuento: " + p.getPreu());
+        // Crear Scanner per a l'entrada de dades
+        Scanner teclat = new Scanner(System.in);
 
-        // Actualizamos el stock
-        p.actualitzaEstoc(3);
-        System.out.println("Stock después de la venta: " + p.getQuantitat());
-        
-        //Mostramos la categoria
-        System.out.println("La categoria es: " + p.mostrarCategoria());
+        // Demanar el nom d'un producte
+        System.out.print("\nEscriu el nom d'un producte per conèixer el seu preu: ");
+        String nomProducte = teclat.nextLine();
+        boolean trobat = false;
 
-        // Comprobamos si está agotado
-        System.out.println("¿El producto está agotado? " + p.esExhaurit());
+        // Comprovar el nom del producte sense utilitzar break
+        for (int i = 0; i < productes.length; i++) {
+            if (productes[i].getNom().equalsIgnoreCase(nomProducte)) {
+                System.out.println("El preu de " + productes[i].getNom() + " és " + productes[i].getPreu() + " ?.");
+                trobat = true;
+                i = productes.length; // Sortir del bucle assignant un valor fora del rang
+            }
+        }
 
-        // Mostramos el precio final (que es el mismo tras aplicar el descuento)
-        System.out.println("Precio final con descuento: " + p.preuFinal());
+        if (!trobat) {
+            System.out.println("Producte no trobat.");
+        }
+ 
         
-        // Ahora hacemos lo mismo pero con producte 2
-        
-        System.out.println("\n--------------------------------\n");
-        
-        System.out.println("Nombre del producte: " + p2.mostrarNom());
-        System.out.println("Precio original: " + p2.getPreu());
-        
-        p2.aplicaDescompte();
-        
-        System.out.println("Precio después del descuento: " + p2.getPreu());
-        System.out.println("La categoria es: " + p2.mostrarCategoria());
-        
-        p2.actualitzaEstoc(9);
-        System.out.println("Stock después de la venta: " + p2.getQuantitat());
-        
-        System.out.println("¿El producto está agotado? " + p2.esExhaurit());
-        
-        System.out.println("Precio final con descuento: " + p2.preuFinal());
-        
-        
+        // Demanar dos preus
+        System.out.print("\nIntrodueix el primer preu: ");
+        double preu1 = teclat.nextDouble();
+        System.out.print("Introdueix el segon preu: ");
+        double preu2 = teclat.nextDouble();
+
+        double minPreu = Math.min(preu1, preu2);
+        double maxPreu = Math.max(preu1, preu2);
+
+        // Mostrar productes dins del rang de preus
+        System.out.println("\nProductes amb preu entre " + minPreu + " ? i " + maxPreu + " ?:");
+        trobat = false;
+        for (Producte producte : productes) {
+            if (producte.getPreu() >= minPreu && producte.getPreu() <= maxPreu) {
+                System.out.println(producte.getDescripcio());
+                trobat = true;
+            }
+        }
+
+        if (!trobat) {
+            System.out.println("No s'ha trobat cap producte en aquest rang de preus.");
+        }
+     */   
     }
     
 }

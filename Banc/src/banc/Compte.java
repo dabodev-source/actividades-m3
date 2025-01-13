@@ -9,40 +9,68 @@ package banc;
  * @author docto
  */
 public class Compte {
-    // Atributs 
-   String numero; //el número del compte
-   String titular; //el nom del titular del compte
-   double saldo; //el saldo actual del compte
-   double interesAnual; //el percentatge d'interès anual
+    private static final String prefixNumeroCompte = "ES450-";
+    private static int comptadorComptes = 1;
+
+    private String numero; // Número del compte
+    Client titular; // Titular del compte
+    double saldo; // Saldo actual del compte
+    double interesAnual; // Percentatge d'interès anual
     
-        //calculaInteresAnual(): calcula i afegeix al saldo l'interès anual en funció del valor de interesAnual.
-   
-   void calculaInteresAnual() {
-      saldo = saldo + saldo * interesAnual/100;
-   }
-   
-   //ingressar(double quantitat): incrementa el saldo amb la quantitat especificada.
-   
-   void ingresar(double quantitat) {
-       saldo = saldo + quantitat;
-   }
-        
-        //retirar(double quantitat): disminueix el saldo amb la quantitat especificada si hi ha saldo suficient.
-   
-   boolean retirar(double quantitat) {
-       if (saldo >= quantitat) {
-       saldo = saldo - quantitat;
-           System.out.println("Has retirat " + quantitat + " euros");
-           return true;
-       }
-       else {
-           System.out.println("Saldo insuficient");
-           return false;
-       }
-   }
-        //mostrarSaldo(): mostra per pantalla el saldo actual del compte.
-   String mostrarSaldo() {
-       return "En el teu compte " + numero + " el saldo és de  "+ saldo;
-       //System.out.println("En el teu compte " + numero + " el saldo és de  "+ saldo);
-   }
+
+    public Compte(Client titular, double saldoInicial) {
+        this.numero = prefixNumeroCompte + comptadorComptes++;
+        this.titular = titular;
+        this.saldo = saldoInicial;
+    }
+
+    public Compte(String numero, Client titular, double saldo, double interesAnual) {
+        this.numero = numero;
+        this.titular = titular;
+        this.saldo = saldo;
+        this.interesAnual = interesAnual;
+    }
+
+    public Compte() {
+    }
+
+    public void transferir(Compte altreCompte, double quantitat) {
+        if (saldo >= quantitat) {
+            saldo -= quantitat;
+            altreCompte.saldo += quantitat;
+            System.out.println("Transferència de " + quantitat + " euros realitzada amb èxit a " + altreCompte.numero);
+        } else {
+            System.out.println("Saldo insuficient per fer la transferència.");
+        }
+    }
+
+    void calculaInteresAnual() {
+        saldo += saldo * interesAnual / 100;
+    }
+
+    void ingresar(double quantitat) {
+        saldo += quantitat;
+    }
+
+    boolean retirar(double quantitat) {
+        if (saldo >= quantitat) {
+            saldo -= quantitat;
+            System.out.println("Has retirat " + quantitat + " euros");
+            return true;
+        } else {
+            System.out.println("Saldo insuficient");
+            return false;
+        }
+    }
+    
+    String mostrarSaldo() {
+        return "En el teu compte " + numero + " el saldo és de  " + saldo;
+    }
+
+    @Override
+    public String toString() {
+        return "Compte{" + "numero=" + numero + ", titular=" + titular + ", saldo=" + saldo + ", interesAnual=" + interesAnual + '}';
+    }
+    
+    
 }

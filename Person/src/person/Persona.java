@@ -30,7 +30,7 @@ public class Persona {
         this.dataNaixement = LocalDate.parse(dataNaixement, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
-    // Setters i getters amb validació
+    // Setters i getters amb validaci?
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -85,28 +85,28 @@ public class Persona {
         return dataNaixement;
     }
 
-    // Mètode 1: Calcular IMC
+    // M?tode 1: Calcular IMC
     public double calcularIMC() {
         return pes / (altura * altura);
     }
 
-    // Mètode 2: Es major d'edat
+    // M?tode 2: Es major d'edat
     public boolean esMajorDEdat() {
         return edat >= 18;
     }
 
-    // Mètode 3: Obtenir descripció
+    // M?tode 3: Obtenir descripci?
     public String obtenirDescripcio() {
         return "Nom: " + nom + ", Edat: " + edat + " anys, Altura: " + altura + " m, Pes: " + pes + " kg, Sexe: " + sexe + " Data: " + dataNaixement;
     }
 
-    // Mètode 4: Celebrar aniversari
+    // M?tode 4: Celebrar aniversari
     public void celebrarAniversari() {
         edat++;
-        System.out.println(nom + " celebra un any més! Ara té " + edat + " anys.");
+        System.out.println(nom + " celebra un any m?s! Ara t? " + edat + " anys.");
     }
 
-    // Mètode 5: Calcular freqüència màxima cardíaca
+    // M?tode 5: Calcular freq??ncia m?xima card?aca
     public int calcularFreqMaximaCardiaca() {
         if (sexe.equalsIgnoreCase("home")) {
             return (int) (208 - (0.7 * edat));
@@ -116,12 +116,12 @@ public class Persona {
         return 0;
     }
 
-    // Mètode 6: Convertir altura a centímetres
+    // M?tode 6: Convertir altura a cent?metres
     public double convertirAlturaACentimetres() {
         return altura * 100;
     }
 
-    // Mètode 7: Té pes saludable
+    // M?tode 7: T? pes saludable
     public boolean tePesSaludable() {
         double imc = calcularIMC();
         return imc >= 18.5 && imc <= 24.9;

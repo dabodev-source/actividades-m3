@@ -10,24 +10,25 @@ package botiga;
  */
 public class Producte {
     //nom: el nom del producte
-    String nom;
+    private String nom;
     //preu: el preu del producte
-    double preu;
+    private double preu;
     //quantitat: la quantitat disponible
-    double quantitat;
+    private double quantitat;
     //categoria: la categoria del producte
-    String categoria;
+    private Categoria categoria;
     //descompte: percentatge de descompte aplicable
-    double descompte;
+    private double descompte;
 
-    public Producte(String nom, double preu, double quantitat, String categoria, double descompte) {
+    
+    public Producte(String nom, double preu, double quantitat, Categoria categoria, double descompte) {
         this.nom = nom;
         this.preu = preu;
         this.quantitat = quantitat;
         this.categoria = categoria;
         this.descompte = descompte;
     }
-   
+    
     public double getPreu() {
         return preu;
     }
@@ -39,10 +40,10 @@ public class Producte {
     String mostrarNom(){
         return nom;
     }
-    
+   /* 
     String mostrarCategoria(){
         return categoria;
-    }
+    }*/
 
     public String getNom() {
         return nom;
@@ -50,14 +51,6 @@ public class Producte {
 
     public void setNom(String nom) {
         this.nom = nom;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
     }
 
     public double getDescompte() {
@@ -92,4 +85,15 @@ public class Producte {
         return preu;
         
     }
+
+    @Override
+    public String toString() {
+        return "Producte{" + "nom=" + nom + ", preu=" + preu + ", quantitat=" + quantitat + ", categoria=" + categoria + ", descompte=" + descompte + '}';
+    }
+    
+    public String getDescripcio() {
+        return "Nom: " + nom + ", Categoria: " + categoria + ", Preu: " + preu + " ?";
+    }
+    
+    
 }

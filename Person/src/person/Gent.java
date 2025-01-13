@@ -20,12 +20,12 @@ public class Gent {
         Persona persona2 = new Persona("Joan", 17, 1.80, 75, "home", "05/03/2007");
         Persona persona3 = new Persona("Marta", 30, 1.65, 55, "dona", "23/07/1994");
 
-        // Cridar mètodes per a cada persona
+        // Cridar m?todes per a cada persona
         System.out.println(persona1.obtenirDescripcio());
         System.out.println("IMC: " + persona1.calcularIMC());
         System.out.println("Major d'edat: " + persona1.esMajorDEdat());
         persona1.celebrarAniversari();
-        System.out.println("Freq. Max. Cardíaca: " + persona1.calcularFreqMaximaCardiaca());
+        System.out.println("Freq. Max. Card?aca: " + persona1.calcularFreqMaximaCardiaca());
         System.out.println("Altura en cm: " + persona1.convertirAlturaACentimetres());
         System.out.println("Pes saludable: " + persona1.tePesSaludable());
         
@@ -35,7 +35,7 @@ public class Gent {
         System.out.println("IMC: " + persona2.calcularIMC());
         System.out.println("Major d'edat: " + persona2.esMajorDEdat());
         persona2.celebrarAniversari();
-        System.out.println("Freq. Max. Cardíaca: " + persona2.calcularFreqMaximaCardiaca());
+        System.out.println("Freq. Max. Card?aca: " + persona2.calcularFreqMaximaCardiaca());
         System.out.println("Altura en cm: " + persona2.convertirAlturaACentimetres());
         System.out.println("Pes saludable: " + persona2.tePesSaludable());
 
@@ -45,7 +45,7 @@ public class Gent {
         System.out.println("IMC: " + persona3.calcularIMC());
         System.out.println("Major d'edat: " + persona3.esMajorDEdat());
         persona3.celebrarAniversari();
-        System.out.println("Freq. Max. Cardíaca: " + persona3.calcularFreqMaximaCardiaca());
+        System.out.println("Freq. Max. Card?aca: " + persona3.calcularFreqMaximaCardiaca());
         System.out.println("Altura en cm: " + persona3.convertirAlturaACentimetres());
         System.out.println("Pes saludable: " + persona3.tePesSaludable());
     }

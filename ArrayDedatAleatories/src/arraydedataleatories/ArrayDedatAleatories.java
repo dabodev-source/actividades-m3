@@ -17,13 +17,37 @@ public class ArrayDedatAleatories {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Random generator = new Random();
-        int [] edad = new int [500];
-        
-        for (int i = 0; i < edad.length; i++) {
-            System.out.println(edad[i] = generator.nextInt(0,80)); // Genera valors de 0 a 10
-            
+         // Nombre de valors i rang d'edats
+        int numValors = 500;
+        int minEdat = 0;
+        int maxEdat = 80;
+
+        // Crear array per desar les edats
+        int[] edats = new int[numValors];
+
+        // Generar valors aleatoris
+        Random random = new Random();
+        for (int i = 0; i < numValors; i++) {
+            edats[i] = random.nextInt(maxEdat - minEdat + 1) + minEdat;
         }
+
+        // Comptadors per a infants i majors d'edat
+        int numInfants = 0;
+        int numMajorsEdat = 0;
+
+        // Recórrer l'array i comptar
+        for (int edat : edats) {
+            if (edat >= 0 && edat <= 5) {
+                numInfants++;
+            }
+            if (edat >= 18) {
+                numMajorsEdat++;
+            }
+        }
+
+        // Mostrar resultats
+        System.out.println("Número d'infants (0-5 anys): " + numInfants);
+        System.out.println("Número de persones majors d'edat (18+ anys): " + numMajorsEdat);
     }
     
 }

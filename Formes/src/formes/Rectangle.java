@@ -9,9 +9,9 @@ package formes;
  * @author docto
  */
 public class Rectangle {
-    int costat1;
-    int costat2;
-    String color;
+    private int costat1;
+    private int costat2;
+    private String color;
     private double amplada;
     private double llargada;
 
@@ -22,7 +22,19 @@ public class Rectangle {
         this.amplada = amplada;
         this.llargada = llargada;
     }
-    
+
+    public Rectangle(int costat1, int costat2) {
+        this.setCostat1(costat1);
+        this.setCostat2(costat2);
+        this.color = "negre";
+    }
+
+    public Rectangle(int costat1, int costat2, String color) {
+        this.costat1 = costat1;
+        this.costat2 = costat2;
+        this.color = color;
+    }
+     
     // Constructor sin parametros
     public Rectangle() {
         this.llargada = 1; 
@@ -58,7 +70,13 @@ public class Rectangle {
     }
 
     public void setCostat1(int costat1) {
-        this.costat1 = costat1;
+        if(costat1>=1 && costat1<=9) {
+            this.costat1 = costat1;
+        }
+        else {
+            this.costat1 = 1;
+        }
+        
     }
 
     public int getCostat2() {
@@ -66,7 +84,12 @@ public class Rectangle {
     }
 
     public void setCostat2(int costat2) {
-        this.costat2 = costat2;
+        if(costat1>=1 && costat1<=9) {
+            this.costat2 = costat2;
+        }
+        else {
+            this.costat2 = 1;
+        }
     }
 
     public String getColor() {
