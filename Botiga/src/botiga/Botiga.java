@@ -49,28 +49,24 @@ public class Botiga {
        
     
         Producte[] productes = new Producte[10];
-        productes[0] = new Producte("Portàtil", 1200.0, 10, categories[0], 15.0);
-        productes[1] = new Producte("Pilota de futbol", 30.0, 50, categories[1], 10.0);
-        productes[2] = new Producte("Cafè premium", 15.5, 100, categories[2], 5.0);
-        productes[3] = new Producte("Jaqueta d'hivern", 80.0, 20, categories[3], 20.0);
-        productes[4] = new Producte("Auriculars", 50.0, 25, categories[0], 10.0);
-        productes[5] = new Producte("Sabates esportives", 70.0, 30, categories[1], 20.0);
-        productes[6] = new Producte("Galetes artesanes", 5.0, 150, categories[2], 5.0);
-        productes[7] = new Producte("Camisa de seda", 45.0, 10, categories[3], 25.0);
-        productes[8] = new Producte("Tauleta tàctil", 300.0, 15, categories[0], 15.0);
-        productes[9] = new Producte("Raqueta de tennis", 100.0, 8, categories[1], 10.0);
+        productes[0] = new ProducteTecnologic("Windows 11", 16, "Portàtil", 1200.0, 10, tecnologia, 15.0);
+        productes[1] = new ProducteEsportiu(5, "Cuir", "Pilota de futbol", 30.0, 50, esports, 10.0);
+        productes[2] = new ProducteAlimentari(20250130, 200, "Cafè premium", 15.5, 100, alimentacio, 5.0);
+        productes[3] = new ProducteDeModa("M", "Cotó", "Jaqueta d'hivern", 80.0, 20, moda, 20.0);
+        productes[4] = new ProducteTecnologic("Android 12", 128, "Auriculars", 50.0, 25, tecnologia, 10.0);
+        productes[5] = new ProducteEsportiu(42, "Sintètic", "Sabates esportives", 70.0, 30, esports, 20.0);
+        productes[6] = new ProducteAlimentari(20250115, 150, "Galetes artesanes", 5.0, 150, alimentacio, 5.0);
+        productes[7] = new ProducteDeModa("L", "Seda", "Camisa de seda", 45.0, 10, moda, 25.0);
+        productes[8] = new ProducteTecnologic("iOS 16", 64, "Tauleta tàctil", 300.0, 15, tecnologia, 15.0);
+        productes[9] = new ProducteEsportiu(68, "Metàl·lic", "Raqueta de tennis", 100.0, 8, esports, 10.0);
+
         
-        //Agregamos las subclases
-        productes[4] = new ProducteTecnologic("Windows 11", 512, "Portàtil Gaming", 1500.0, 5, tecnologia, 10.0);
-        productes[5] = new ProducteEsportiu(5, "Cuir", "Pilota de bàsquet", 50.0, 30, esports, 5.0);
-        productes[6] = new ProducteAlimentari(20250101, 200, "Suc de taronja", 3.5, 100, alimentacio, 2.0);
-        productes[7] = new ProducteDeModa("L", "Cotó", "Pantalons texans", 40.0, 25, moda, 15.0);
-        
+        System.out.println("\nLlista de productes:");
         for (Producte producte : productes) {
-            if (producte != null) {
-                System.out.println(producte.getDescripcio());
-            }
+            System.out.println(producte.toString());
         }
+        
+       
 /*
         // Mostrem la llista de productes amb la seva categoria
         System.out.println("\nLlista de productes:");

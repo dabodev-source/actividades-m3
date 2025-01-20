@@ -9,13 +9,13 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 public class Persona {
-    private String nom;
-    private double altura;
-    private double pes;
-    private String sexe;
-    private String nacionalitat;
-    private LocalDate dataNaixement;
-    private String DNI;
+    public String nom;
+    public double altura;
+    public double pes;
+    public String sexe;
+    public String nacionalitat;
+    public LocalDate dataNaixement;
+    public String DNI;
     private String[] telefons = new String[5];
 
     private static final char[] LLETRES_DNI = {
@@ -34,6 +34,10 @@ public class Persona {
     }
 
     public Persona() {}
+    
+    public String getNom(){
+        return nom;
+    }
 
     public int getEdad() {
         if (dataNaixement == null) {
@@ -129,4 +133,8 @@ public class Persona {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     this.dataNaixement = LocalDate.parse(data, formatter);
 }
+
+    boolean getEdat() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

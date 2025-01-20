@@ -9,15 +9,15 @@ package banc;
  * @author docto
  */
 public class Client {
-    private String dni;
     private String nom;
+    private String dni;
 
     public Client() {
     }
 
-    public Client(String dni, String nom) {
-        this.dni = dni;
+    public Client(String nom, String dni) {
         this.nom = nom;
+        this.dni = dni;
     }
 
     public String getDni() {
@@ -36,5 +36,11 @@ public class Client {
         this.nom = nom;
     }
 
+    @Override
+    public String toString() {
+        return nom + " (" + dni + ")";    
+    }
+
+    
     
 }

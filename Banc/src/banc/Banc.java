@@ -22,6 +22,7 @@ public class Banc {
             System.out.println(c.titular.getNom());
         }*/
         
+        /*
         Client client1 = new Client("11111111A", "Ana Mena");
         Compte compte1 = new Compte(client1, 1000);
         Compte compte2 = new Compte(client1, 500);
@@ -33,8 +34,22 @@ public class Banc {
 
         System.out.println(compte1.mostrarSaldo());
         System.out.println(compte2.mostrarSaldo());
+        */
         
+        Sucursal sucursal = new Sucursal();
+         // Mostrem la informació dels comptes
+        System.out.println("Informació de la Sucursal:");
+        sucursal.mostrarInformacioComptes();
         
+        System.out.println("\n");
+        // Exemple de retirades i afegir interessos
+        CompteCorrent cc = new CompteCorrent(500, new Client("Joan", "J12345678"), 1000);
+        cc.retirar(1200);  // Hauria de funcionar amb el límit de descobert
+        System.out.println(cc);
+
+        CompteEstalvi ce = new CompteEstalvi(3.0, "ES450-004", new Client("Maria", "M98765432"), 1000, 1.5);
+        ce.afegirInteres(); // Afegeix l'interès
+        System.out.println(ce);
         
        /*
         Compte compte1 = new Compte();

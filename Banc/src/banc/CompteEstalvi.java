@@ -11,6 +11,13 @@ package banc;
 public class CompteEstalvi extends Compte {
     private double tipusInteres;
 
+    // Constructor amb paràmetres
+    public CompteEstalvi(double tipusInteres, String numero, Client titular, double saldo, double interesAnual) {
+        super(numero, titular, saldo, interesAnual);
+        this.tipusInteres = tipusInteres;
+    }
+
+    // Getter i Setter per al tipus d'interès
     public double getTipusInteres() {
         return tipusInteres;
     }
@@ -19,13 +26,11 @@ public class CompteEstalvi extends Compte {
         this.tipusInteres = tipusInteres;
     }
 
-    public CompteEstalvi(double tipusInteres, String numero, Client titular, double saldo, double interesAnual) {
-        super(numero, titular, saldo, interesAnual);
-        this.tipusInteres = tipusInteres;
-    }
-    
-    public void afegirInteres(){
-        
+    // Mètode per afegir l'interès sobre el saldo
+    public void afegirInteres() {
+        double interes = saldo * tipusInteres / 100;
+        saldo += interes;
+        System.out.println("S'ha afegit l'interès: " + interes + " euros al compte d'estalvi.");
     }
     
 }

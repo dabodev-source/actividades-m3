@@ -43,7 +43,7 @@ public class Herencia {
         llista[2] = c2;
         llista[3] = a;
         
-        // elemetn guarda el array
+        // element guarda el array
         for (Vehicle element: llista) {
             System.out.println(element);
             if(element instanceof Autobus ) {
