@@ -41,7 +41,7 @@ public class Menor extends Persona{
 
     @Override
     public String toString() {
-        return "Menor{" + "cursActual=" + cursActual + ", activitatExtracolar=" + activitatExtracolar + '}';
+        return super.toString() + " cursActual " + cursActual + " activitatExtracolar " + activitatExtracolar;
     }
     
     

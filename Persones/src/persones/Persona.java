@@ -7,6 +7,7 @@ package persones;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 public class Persona {
     public String nom;
@@ -137,4 +138,40 @@ public class Persona {
     boolean getEdat() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+    public int hashCode() {
+       /* int hash = 5;
+        return hash;*/
+       return nom != null ? nom.toLowerCase().hashCode() : 0;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        //Esto se quita en la fase7 porque lo que hace es comparar persona con jubilat o con actiu y menor
+        /*if (getClass() != obj.getClass()) {
+            return false;
+        }*/
+        final Persona other = (Persona) obj;
+        return Objects.equals(this.nom, other.nom);
+    }
+    
+    
+    public Persona(String nom) {
+        this.nom = nom;
+    }
+
+    @Override
+    public String toString() {
+        return " Nom " + nom + " Altura " + altura + " Pes " + pes + " Sexe " + sexe + " Nacionalitat " + nacionalitat + " dataNaixement " + dataNaixement + " DNI " + DNI;
+    }
+    
+    
+    
 }

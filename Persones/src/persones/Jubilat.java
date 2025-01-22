@@ -63,5 +63,13 @@ public class Jubilat extends Persona {
         int anyActual = Year.now().getValue(); // Obtenim l'any actual
         return anyActual - dataJubilacio; // Restem l'any de jubilació
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Pensio Mensual " + pensioMensual + " dataJubilacio " + dataJubilacio + " activitatsPreferides " + activitatsPreferides;
+    }
+    
+    
+    
     
 }

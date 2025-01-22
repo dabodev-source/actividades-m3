@@ -55,4 +55,11 @@ public class Actiu extends Persona {
         
         return souAnual;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " ocupacio " + ocupacio + " souMensual " + souMensual + " horesTreballades " + horesTreballades;
+    }
+    
+    
 }
