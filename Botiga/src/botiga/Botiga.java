@@ -4,6 +4,9 @@
  */
 package botiga;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -17,12 +20,90 @@ public class Botiga {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+            //FASE 6
             
+       // Creació de categories
         Categoria tecnologia = new Categoria("Tecnologia", "Productes i serveis relacionats amb tecnologia.");
         Categoria esports = new Categoria("Esports", "Equipament i accessoris esportius.");
         Categoria alimentacio = new Categoria("Alimentació", "Productes alimentaris i begudes.");
         Categoria moda = new Categoria("Moda", "Roba i accessoris de moda.");
+
+        // Llista de productes disponibles al catàleg (FASE 5)
+        ArrayList<Producte> llistaProductes = new ArrayList<>();
+        llistaProductes.add(new Producte("Llapis", 1200.0, 10, tecnologia, 15.0));
+        llistaProductes.add(new Producte("Pilota", 30.0, 50, esports, 10.0));
+        llistaProductes.add(new Producte("Ratoli", 15.5, 100, tecnologia, 5.0));
+
+        // Mostrem els productes disponibles
+        System.out.println("Llista de productes disponibles al catàleg:");
+        for (int i = 0; i < llistaProductes.size(); i++) {
+            System.out.println(i + ": " + llistaProductes.get(i).getNom());
+        }
+
+        // Creem el carret de la compra (FASE 6)
+        Map<Producte, Integer> carret = new HashMap<>();
+
+        // Inicialitzem variables per gestionar la compra
+        Scanner sc = new Scanner(System.in);
+        int opcio = 0; // Número del producte que vol afegir
+        int quantitat; // Quantitat a afegir
+
+        // Comencem el bucle per gestionar el carret de la compra
+        while (opcio != -1) { // L'usuari pot escriure -1 per acabar
+            System.out.println("\nEntra el número del producte que vols afegir al carret? (-1 per acabar)");
+            opcio = sc.nextInt();
+
+            if (opcio == -1) {
+                // Si l'usuari escriu -1, surtim del bucle
+                break;
+            }
+
+            // Validem que l'opció estigui dins del rang de productes
+            if (opcio < 0 || opcio >= llistaProductes.size()) {
+                System.out.println("Opció no vàlida. Torna-ho a intentar.");
+                continue;
+            }
+
+            // Obtenim el producte seleccionat
+            Producte producteSeleccionat = llistaProductes.get(opcio);
+
+            System.out.println("Quina quantitat en vols?");
+            quantitat = sc.nextInt();
+
+            // Afegim o actualitzem el producte al carret
+            if (carret.containsKey(producteSeleccionat)) {
+                // Si el producte ja és al carret, sumem la nova quantitat
+                carret.put(producteSeleccionat, carret.get(producteSeleccionat) + quantitat);
+            } else {
+                // Si no és al carret, l'afegim amb la quantitat inicial
+                carret.put(producteSeleccionat, quantitat);
+            }
+
+            // Mostrem el contingut del carret després d'afegir cada producte
+            System.out.println("\nContingut Carret:");
+            for (Producte p : carret.keySet()) {
+                System.out.println(p.getNom() + " " + carret.get(p) + " unitats");
+            }
+        }
+
+        // Mostrem el resum final de la compra
+        System.out.println("\nEl total de la compra és:");
+        double totalCompra = 0.0;
+
+        for (Producte p : carret.keySet()) {
+            int quantitatFinal = carret.get(p);
+            double subtotal = quantitatFinal * p.getPreu();
+            totalCompra += subtotal;
+            System.out.println(p.getNom() + ": " + quantitatFinal + " unitats - Subtotal: " + subtotal + " euros");
+        }
+
+        System.out.printf("\nTOTAL FINAL: %.2f euros\n", totalCompra);
+        System.out.println("Gràcies per la teva compra!");
+    }
         
+        //FASE 1 Creo
+        
+        /*
         Producte p1 = new Producte("Portàtil", 1200.0, 10, tecnologia, 15.0);
         Producte p2 = new Producte("Pilota de futbol", 30.0, 50, esports, 10.0);
         Producte p3 = new Producte("Cafè premium", 15.5, 100, alimentacio, 5.0);
@@ -65,7 +146,7 @@ public class Botiga {
         for (Producte producte : productes) {
             System.out.println(producte.toString());
         }
-        
+        */
        
 /*
         // Mostrem la llista de productes amb la seva categoria
@@ -118,7 +199,5 @@ public class Botiga {
         if (!trobat) {
             System.out.println("No s'ha trobat cap producte en aquest rang de preus.");
         }
-     */   
-    }
-    
+     */     
 }

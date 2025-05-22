@@ -88,7 +88,7 @@ public class Producte {
 
     @Override
     public String toString() {
-        return "Producte{" + "nom=" + nom + ", preu=" + preu + ", quantitat=" + quantitat + ", categoria=" + categoria + ", descompte=" + descompte + '}';
+        return "Producte amb nom = " + nom ;
     }
     
     public String getDescripcio() {
